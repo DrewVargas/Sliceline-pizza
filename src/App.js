@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Navbar } from './components/Navbar';
 import { Banner } from './components/Banner';
 import Menu from './components/Menu';
 import { GlobalStyle } from './styles/GlobalStyle';
 import { FoodDialog } from './components/FoodDialog';
 import { Order } from './components/Order';
-import { useOpenFood, useOrders } from './Hooks';
+import { useOpenFood, useOrders, useTitle } from './Hooks';
 
 function App() {
   const openFood = useOpenFood();
   const orders = useOrders();
+  useTitle({ ...openFood, ...orders });
 
   return (
     <>
