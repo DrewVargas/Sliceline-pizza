@@ -28,3 +28,21 @@ export function useTitle({ openFood, orders }) {
     }
   });
 }
+
+export function useQuantity(defaultQuantity) {
+  const [value, setValue] = useState(defaultQuantity || 1);
+
+  function onChange(e) {
+    if (!(+e.target.value >= 1 && +e.target.value <= 20)) {
+      setValue(1);
+      return;
+    }
+    setValue(+e.target.value);
+  }
+
+  return {
+    value,
+    setValue,
+    onChange
+  };
+}
