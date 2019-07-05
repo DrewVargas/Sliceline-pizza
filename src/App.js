@@ -1,26 +1,20 @@
-import React from 'react';
-import { createGlobalStyle } from 'styled-components';
+import React, { useState } from 'react';
 import { Navbar } from './components/Navbar';
 import { Banner } from './components/Banner';
 import Menu from './components/Menu';
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    font-family: 'Raleway', sans-serif;
-    margin: 0;
-  }
-  h1, h2, h3 {
-    font-family: 'Righteous', cursive;
-  }
-`;
+import { GlobalStyle } from './styles/GlobalStyle';
+import { FoodDialog } from './components/FoodDialog';
 
 function App() {
+  const [openFood, setOpenFood] = useState('');
+
   return (
     <>
       <GlobalStyle />
+      <FoodDialog openFood={openFood} setOpenFood={setOpenFood} />
       <Navbar />
       <Banner />
-      <Menu />
+      <Menu setOpenFood={setOpenFood} />
     </>
   );
 }
