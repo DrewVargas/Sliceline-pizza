@@ -53,6 +53,12 @@ export const foodItems = [
     img: '../img/stuffed-pizza.jpg',
     section: 'Specialty Pizza',
     price: 12
+  },
+  {
+    price: 1,
+    name: 'Soda',
+    section: 'Drinks',
+    choices: ['Coke', 'Sprite', 'Rootbeer']
   }
 ];
 
