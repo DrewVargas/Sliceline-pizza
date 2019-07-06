@@ -39,6 +39,13 @@ const OrderItem = styled.div`
 `;
 
 export function Order({ orders }) {
+  const subtotal = orders.reduce((total, order) => {
+    return total + getPrice(order);
+  }, 0);
+
+  const tax = subtotal * 0.07;
+  const total = subtotal + tax;
+
   return (
     <OrderStyled>
       {orders.length === 0 ? (
@@ -56,6 +63,23 @@ export function Order({ orders }) {
               </OrderItem>
             </OrderContainer>
           ))}
+          <OrderContainer>
+            <OrderItem>
+              <div />
+              <div>SubTotal:</div>
+              <div>{formatPrice(subtotal)}</div>
+            </OrderItem>
+            <OrderItem>
+              <div />
+              <div>Tax:</div>
+              <div>{formatPrice(tax)}</div>
+            </OrderItem>
+            <OrderItem>
+              <div />
+              <div>Total:</div>
+              <div>{formatPrice(total)}</div>
+            </OrderItem>
+          </OrderContainer>
         </OrderContent>
       )}
       <DialogFooter>
