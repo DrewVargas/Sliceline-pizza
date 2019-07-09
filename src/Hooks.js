@@ -130,3 +130,12 @@ export function useAuthentication() {
   }, []);
   return { login, loggedIn: authenticated, logout };
 }
+
+export function useOrderDialog() {
+  const [openOrderDialog, setOpenOrderDialog] = useState();
+
+  return {
+    openOrderDialog,
+    setOpenOrderDialog
+  };
+}
